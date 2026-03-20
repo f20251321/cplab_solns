@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int n;
+
+  printf("Enter the size: ");
+  scanf("%d", &n);
+
+  int *a = (int *)malloc(n * sizeof(int));
+  int *b = (int *)malloc(n * sizeof(int));
+
+  printf("Enter the elements of the first array\n");
+  for (int i = 0; i < n; i++)
+    scanf("%d", &a[i]);
+
+  printf("Enter the elements of the second array\n");
+  for (int i = 0; i < n; i++)
+    scanf("%d", &b[i]);
+
+  long long dot = 0;
+  for (int i = 0; i < n; i++) {
+    dot += (long long)a[i] * b[i];
+  }
+  printf("The dot product of the arrays is %lld.\n", dot);
+
+  free(a);
+  free(b);
+  return 0;
+}
